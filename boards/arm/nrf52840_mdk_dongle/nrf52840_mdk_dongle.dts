@@ -7,6 +7,7 @@
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
 
+#include "nrf52840_mdk_dongle-pinctrl.dtsi"
 / {
 	model = "nRF52840-MDK-dongle Dev Kit";
 	compatible = "nordic,nRF52840-MDK-dongle";
@@ -75,28 +76,32 @@
 	status = "okay";
 };
 
+
+
 &uart0 {
-	compatible = "nordic,nrf-uart";
-	current-speed = <115200>;
+	compatible = "nordic,nrf-uarte";
 	status = "okay";
-	tx-pin = <20>;
-	rx-pin = <19>;
-	rts-pin = <2>;
-	cts-pin = <3>;
+	current-speed = <115200>;
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-1 = <&uart0_sleep>;
+	pinctrl-names = "default", "sleep";
 };
 
 &i2c0 {
 	compatible = "nordic,nrf-twi";
 	status = "okay";
-	sda-pin = <6>;
-	scl-pin = <7>;
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-1 = <&i2c0_sleep>;
+
 };
 
 &i2c1 {
 	compatible = "nordic,nrf-twi";
 	status = "okay";
-	sda-pin = <8>;
-	scl-pin = <21>;
+
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-1 = <&i2c1_sleep>;
+
 };
 
 &flash0 {

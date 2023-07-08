@@ -52,9 +52,6 @@ static const struct gpio_dt_spec button = GPIO_DT_SPEC_GET_OR(SW0_NODE, gpios,
 
 LOG_MODULE_REGISTER(myapp, CONFIG_MYAPP_LOG_LEVEL);
 
-BUILD_ASSERT(DT_NODE_HAS_COMPAT(DT_CHOSEN(zephyr_console), zephyr_cdc_acm_uart),
-	     "Console device is not ACM CDC UART device");
-
 static void start_scan(void);
 
 static struct bt_conn *default_conn;
