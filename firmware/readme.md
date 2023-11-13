@@ -1,1 +1,1 @@
-# Firmare build with Zephyr SDK 16.3
+## Firmare built with Zephyr SDK 16.3
